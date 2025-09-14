@@ -43,7 +43,7 @@ body{
 
 /* --- row (Flex-managed) --- */
 .row {
-  padding: 1rem 2rem 1rem;
+  padding: 1rem 2rem 2rem;
 }
 .row > header {
   display: flex;
@@ -56,7 +56,72 @@ body{
   font-weight: 500;
   margin: 0;
 }
-/* dots */
+
+.row-list {
+  /* FLEX does the layout; horizontal scrolling for overflow */
+  display: flex;
+  gap: .50rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.row-list > li {
+  flex: 0 0 auto;                       /* don't shrink; stay side-by-side */
+  width: clamp(160px, 22vw, 280px);
+}
+.row-list figure { margin: 0; }
+.row-list figure img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: .25rem;
+  display: block;
+}
+
+/* top10 row */
+.row-list.top10 {
+  counter-reset: top-rank;              /* Initialize a counter named "top-rank" */
+}
+.row-list.top10 > li {
+  counter-increment: top-rank;          /* Increments the counter for each <li> element it finds */
+  position: relative;      
+  display: grid;                          /* CHANGED: make li a grid */
+  grid-template-columns: 1fr 1fr;         /* CHANGED: 50% number | 50% poster */
+  align-items: stretch;                   /* CHANGED */
+}
+.row-list.top10 > li > * {
+  grid-column: 2;                        /* CHANGED: place poster in the 2nd column */  
+}
+.row-list.top10 figure { position: relative; z-index: 1; } /* keep the poster above the number */
+.row-list.top10 > li figure img { 
+  aspect-ratio:7/10;                    /* vertical poster in Top10 */
+}   
+
+.row-list.top10 > li::before {          /* ::before : create pseudo-element before each <li>. don't have to deal with html */
+  content: counter(top-rank);           /* display the value of the counter "top-rank" */
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  justify-self: end;
+  align-self: end;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  line-height: 0.8;
+  font-weight: 900;
+  font-size: clamp(6rem, 15vw, 16rem);
+  color: transparent;
+  -webkit-text-stroke: 4px rgba(255,255,255,.28);
+  text-shadow: none;  
+  z-index: 0;                      /* behind the poster */
+   transform: translate(30%, -8%); /* +X = right, -Y = up */
+}
+
+
+
+
+/* page indicator */
 .pagination-indicator {
   display: flex;
   margin-left: auto;  /*eats up all the margin to the left*/
@@ -71,36 +136,6 @@ body{
   opacity: .9;
 }
 .pagination-indicator li.active { background: #ffffffe7; opacity: 1; }
-
-.row-list {
-  /* FLEX does the layout; horizontal scrolling for overflow */
-  display: flex;
-  gap: .50rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.row-list > li {
-  flex: 0 0 auto;                /* don't shrink; stay side-by-side */
-  width: clamp(160px, 22vw, 280px);
-  scroll-snap-align: start;
-}
-
-figure { margin: 0; }
-figure img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: .25rem;
-  display: block;
-}
-figcaption {
-  margin-top: .5rem;
-  font-size: .9rem;
-  color: #ddd;
-}
-
-
 
 
 
@@ -121,3 +156,5 @@ figcaption {
   height:32px;
   border-radius:4px;
 }
+
+
