@@ -1,7 +1,8 @@
+/* html, body { max-width: 100%; overflow-x: clip; }        stop page-wide spill */
+
 body{
   margin:0;
   background-color:#141414;
-  /* color:white; */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -29,16 +30,30 @@ body{
     /* font-size:14px; */
 }
 
-.nav-right{
-    margin-left:auto;
-    display:flex;
-}
+
+
+
+
+.nav-right { display:flex; margin-left:auto; align-items:center; gap:16px; }
+.nav-right a:link,
+.nav-right a:visited { color:#fff; text-decoration:none; }
+
 .nav-right button{
-    color:white;
-    text-decoration:none;
-    font-size:14px;
-    margin:0 8px;
+  appearance:none; -webkit-appearance:none;
+  background:transparent; border:0; padding:0;
+  width:32px; height:32px;
+  display:inline-flex; align-items:center; justify-content:center;
+  position:relative;
+  font-size:20px;
+  cursor:pointer; color:#fff;
 }
+
+/* avatar + caret keep as-is */
+.nav-button{ background:transparent; border:0; color:#fff; display:inline-flex; align-items:center; gap:4px; }
+.nav-avatar{ width:28px; height:28px; border-radius:4px; display:block; }
+
+
+
 
 /* hero layout */
 .hero{
@@ -46,11 +61,18 @@ body{
   min-height:68vh;
   display:grid; align-items:end;
   padding:clamp(6rem, 12vw, 16rem) 2rem 6rem; /* 상단 여백은 헤더 높이 고려해서 조절 */
+  width: 100%;
 }
 
 /* backdrop media fills the section */
-.hero__media{position:absolute; inset:0; margin:0}
-.hero__media img,.hero__media video{width:100%;height:100%;object-fit:cover;display:block}
+.hero__media{ position:absolute; inset:0; margin:0; overflow:hidden; }
+.hero__media img{
+  position:absolute; left:50%; top:0;
+  width:100%; height:auto; max-width:100%;
+  transform:translateX(-50%);        
+}
+
+
 
 /* readable gradient overlays */
 .hero::before{
@@ -61,7 +83,7 @@ body{
 }
 .hero__panel{
   /* max-width:min(48rem, 56vw);  */
-  width: 100%;
+  width: 82%;
   z-index:1;
   padding: 0 1rem;
 }
@@ -138,11 +160,16 @@ body{
 
 
 
+main{
+  padding:0 0 2rem;
+  max-width:100vw; /* prevent horizontal scroll due to overflow */
+  /* overflow-x:hidden; */
+}
 
 
 /* --- row (Flex-managed) --- */
 .row {
-  padding: 1rem 2rem 2rem;
+  padding: 1rem 0rem 2rem;
 }
 .row > header {
   display: flex;
@@ -152,7 +179,7 @@ body{
 .row > header h2 {
   color:white;
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 400;
   margin: 0;
 }
 
