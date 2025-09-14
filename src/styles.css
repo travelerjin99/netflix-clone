@@ -12,7 +12,7 @@ body{
     width:100%;       
     padding:12px 24px;
     background:rgba(20,20,20,0.8);
-    display:flex; 
+    display:flex; /* no br between tags. */
     align-items:center; gap:16px;
     height:64px; padding:0 24px;
 }
@@ -39,6 +39,60 @@ body{
     font-size:14px;
     margin:0 8px;
 }
+
+/* hero layout */
+.hero{
+  position:relative; isolation:isolate; color:#fff;
+  min-height:68vh;
+  display:grid; align-items:end;
+  padding:clamp(6rem, 12vw, 16rem) 2rem 6rem; /* 상단 여백은 헤더 높이 고려해서 조절 */
+}
+
+/* backdrop media fills the section */
+.hero__media{position:absolute; inset:0; margin:0}
+.hero__media img,.hero__media video{width:100%;height:100%;object-fit:cover;display:block}
+
+/* readable gradient overlays */
+.hero::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.25) 40%, rgba(0,0,0,.0) 70%),
+    linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,.0) 50%);
+}
+.hero__panel{max-width:min(62rem, 95vw); z-index:1}
+
+/* type */
+.hero__eyebrow{font-weight:700; letter-spacing:.02em; margin:0 0 .25rem; color:#e50914}
+.hero__title{font-size:clamp(2rem, 6vw, 3.5rem); line-height:1.1; margin:.25rem 0 .5rem}
+.hero__meta{opacity:.9; margin:0 0 .75rem}
+.hero__desc{max-width:60ch; opacity:.95; margin:0 0 1.25rem}
+
+
+
+.hero__subheader{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  font:600 14px/1.2 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+}
+.hero__subheader .badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:22px;
+  padding:0 .5rem;
+  border-radius:4px;
+  background:#e50914;   /* Netflix-y red */
+  color:#fff;
+  font:800 11px/1 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  letter-spacing:.4px;
+  text-transform:uppercase;
+}
+
+
+
+
+
 
 
 

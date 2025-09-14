@@ -28,51 +28,88 @@
         </nav>
         <menu class="nav-right">
             <!-- 오른쪽의 버튼들.  -->
-            <button class="search-button"><form role="search"></form>🔍</button>
+            <button class="search-button">
+                <form role="search"></form>🔍
+            </button>
             <a href="#">키즈</a>
             <button class="search-button">🔔</button>
             <button class="nav-button">
-                <img class="nav-avatar" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt="Netflix Avatar"/>▾
+                <img class="nav-avatar" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
+                    alt="Netflix Avatar" />▾
             </button>
         </menu>
     </header>
 
+    <main>
+        <!-- Featured / Hero -->
+        <section class="hero" aria-label="추천 타이틀">
+            <figure class="hero__media">
+                <picture>
+                    <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABU6--YLZfHXkELlpf6Wzmxc51LI2QF9w0Ikf_jjsQyP4Mlz7TxUuFNUx9pygUAeAdZ1UdXk9_ncXiBNE-hK1f08vm8LxoLYibGW8.webp?r=daa"
+                        alt="" width="2000" height="1125" loading="eager" decoding="async">
+                </picture>
+                <figcaption class="sr-only">추천 타이틀 배경 이미지</figcaption>
+            </figure>
+
+            <article class="hero__panel">
+                <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABSEAZ_OGKIuMvR3XAHoohrMbXhN1511i3iU5c9lH9mmECitcSJP0I8qdHdoUzKhPbcOxYO_jKf7XPE1xVzws2P0Czyc1eU8B71bT32Iw5xQR.webp?r=9e5">
+                <header class="hero__header">
+                    <p class="hero__subheader">
+                         <span class="badge" aria-label="Top 10">TOP<br>10</span>오늘 시리즈 순위 2위
+                    </p>
+                    <p class="hero__desc">
+                        시간을 거슬러 과거로 가게 된 현대의 셰프가 폭군으로 악명 높은 왕을 만난다. 그녀는 탁월한 요리 솜씨로 왕의 마음과 입맛을 모두 사로잡을 수 있을까?
+                    </p>
+                </header>
+
+                <menu class="hero__actions" role="menubar" aria-label="히어로 동작">
+                    <button type="button" class="btn btn--play" aria-label="재생">▶ 재생</button>
+                    <button type="button" class="btn btn--more" aria-label="상세정보">ⓘ 상세정보</button>
+                    <button class="icon-btn" type="button" aria-label="다시 재생" title="다시 재생">↻</button>
+                    <span class="rating" aria-label="연령 등급 15세 이상">15+</span>
+                </menu>
 
 
-    <header>
-        <!-- 배경 이미지 -->
-        <div class="header-contents">
-            <!-- 제목, 설명, 버튼 -->
-            <h1>제목</h1>
-            <p>설명</p>
-            <div class="header-buttons">
-                <button class="play-button">▶ 재생</button>
-                <button class="more-info-button">i 더보기</button>
+            </article>
+        </section>
+
+
+
+        <header>
+            <!-- 배경 이미지 -->
+            <div class="header-contents">
+                <!-- 제목, 설명, 버튼 -->
+                <h1>제목</h1>
+                <p>설명</p>
+                <div class="header-buttons">
+                    <button class="play-button">▶ 재생</button>
+                    <button class="more-info-button">i 더보기</button>
+                </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <section class="row">
-        <h2>내가 찜한 콘텐츠</h2>
-        <div class="row-posters">
-            <!-- 여러개의 포스터들 -->
-            <img class="row-poster" src="https://upload.wikimedia.org/wikipedia/ko/0/0f/Avengers_Endgame_poster.jpg"
-                alt="Poster 1" />
-
+        <section class="row">
+            <h2>내가 찜한 콘텐츠</h2>
+            <div class="row-posters">
+                <!-- 여러개의 포스터들 -->
+                <img class="row-poster" src="https://upload.wikimedia.org/wikipedia/ko/0/0f/Avengers_Endgame_poster.jpg"
+                    alt="Poster 1" />
 
 
 
 
-            <footer class="site-footer">
-                <address>
-                    Contact: <a href="mailto:support@streamio.example">support@streamio.example</a>
-                </address>
-                <nav aria-label="Footer">
-                    <a href="/terms">Terms</a>
-                    <a href="/privacy">Privacy</a>
-                </nav>
-                <small>&copy; 2025 Streamio</small>
-            </footer>
+
+                <footer class="site-footer">
+                    <address>
+                        Contact: <a href="mailto:support@streamio.example">support@streamio.example</a>
+                    </address>
+                    <nav aria-label="Footer">
+                        <a href="/terms">Terms</a>
+                        <a href="/privacy">Privacy</a>
+                    </nav>
+                    <small>&copy; 2025 Streamio</small>
+                </footer>
 </body>
+</main>
 
 </html>
