@@ -1,7 +1,7 @@
 body{
   margin:0;
-  /* background-color:#141414; */
-  color:white;
+  background-color:#141414;
+  /* color:white; */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -39,6 +39,70 @@ body{
     font-size:14px;
     margin:0 8px;
 }
+
+
+/* --- row (Flex-managed) --- */
+.row {
+  padding: 1rem 2rem 1rem;
+}
+.row > header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+.row > header h2 {
+  color:white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 0;
+}
+/* dots */
+.pagination-indicator {
+  display: flex;
+  margin-left: auto;  /*eats up all the margin to the left*/
+  gap: .1rem;
+  list-style: none;
+  padding: 0;
+}
+.pagination-indicator li {
+  width: 12px;
+  height: 2px;
+  background: #555;
+  opacity: .9;
+}
+.pagination-indicator li.active { background: #ffffffe7; opacity: 1; }
+
+.row-list {
+  /* FLEX does the layout; horizontal scrolling for overflow */
+  display: flex;
+  gap: .50rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.row-list > li {
+  flex: 0 0 auto;                /* don't shrink; stay side-by-side */
+  width: clamp(160px, 22vw, 280px);
+  scroll-snap-align: start;
+}
+
+figure { margin: 0; }
+figure img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: .25rem;
+  display: block;
+}
+figcaption {
+  margin-top: .5rem;
+  font-size: .9rem;
+  color: #ddd;
+}
+
+
+
+
 
 
 
