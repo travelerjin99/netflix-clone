@@ -1,3 +1,7 @@
+:root {
+  --side-gap: 3.5rem;
+}
+
 html, body { max-width: 100%; overflow-x: clip; }        
 /* stop page-wide spill */
 
@@ -13,21 +17,22 @@ body {
   position: sticky;
   top: 0;
   /* width: 100%; */
-  padding: 12px 24px;
+  /* padding: 12px 2rem; */
   background: rgba(20, 20, 20);
   display: flex;
+  
   /* no br between tags. */
   align-items: center;
   gap: 16px;
-  height: 64px;
-  padding: 0 24px;
+  height: 65px;
+  padding: 0 var(--side-gap);
   z-index: 10;
 }
 
 .nav-left {
   list-style: none;
   display: flex;
-  gap: 16px;
+  gap: 1.1rem;
   padding: 0;
   margin: 0;
 }
@@ -35,18 +40,32 @@ body {
 .nav-left a {
   color: white;
   text-decoration: none;
-  /* font-size:14px; */
+  font-size:14px;
+  font-weight: 400;
 }
 
+.flex {
+  display: flex;
+  /* turn on flex */
+  justify-content: space-between;
+  /* spread along main axis (row) */
+  align-items: center;
+  /* align on cross axis (vertical) */
+  gap: 12px;
+}
 
-
-
+.nav-logo {
+  height: 1.6rem;
+  margin-right: 2rem;
+  display: block;
+}
 
 .nav-right {
   display: flex;
   margin-left: auto;
+  margin-right: 8px;
   align-items: center;
-  gap: 16px;
+  gap: 1.2rem;
 }
 
 .nav-right a:link,
@@ -79,6 +98,8 @@ body {
   color: #fff;
   display: inline-flex;
   align-items: center;
+  margin-left: 8px;
+  
   gap: 4px;
 }
 
@@ -89,6 +110,10 @@ body {
   display: block;
 }
 
+.fa-magnifying-glass {
+  font-size: 18px;
+  color:#fff;
+}
 
 
 
@@ -98,9 +123,12 @@ body {
   isolation: isolate;
   color: #fff;
   min-height: 68vh;
-  display: grid;
+  display: block;
   align-items: end;
-  padding: clamp(6rem, 12vw, 16rem) 2rem 6rem;
+  padding: clamp(6rem, 12vw, 16rem) var(--side-gap) 6rem;
+  padding: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   /* 상단 여백은 헤더 높이 고려해서 조절 */
   /* width: 100%; */
 }
@@ -111,66 +139,48 @@ body {
   inset: 0;
   margin: 0;
   overflow: hidden;
+  z-index: 0;
 }
 
-.hero__media img {
+.hero__media > picture > img {
   position: absolute;
-  left: 50%;
-  top: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
   max-width: 100%;
-  transform: translateX(-50%);
+  object-fit: cover;
+  object-position: 60% center;
 }
 
-
-
-/* readable gradient overlays */
-.hero::before {
+/* gradients above image, below text */
+.hero__media::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(0deg, rgba(0, 0, 0, .75) 0%, rgba(0, 0, 0, .25) 40%, rgba(0, 0, 0, .0) 70%),
-    linear-gradient(90deg, rgba(0, 0, 0, .7) 0%, rgba(0, 0, 0, .0) 50%);
-}
-
-.hero__panel {
-  /* max-width:min(48rem, 56vw);  */
-  width: 100%;
   z-index: 1;
-  padding: 0 1rem;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.25) 40%, rgba(0,0,0,0) 70%),
+    linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 50%);
+}
+/* hero text panel */
+/* PANEL OVERLAY */
+.hero__panel {
+  position: absolute;        /* anchor inside the media */
+  z-index: 2;                /* above gradient */
+  left: var(--side-gap);
+  right: auto;
+  bottom: 15%;              /* adjust to taste */
+  max-width: min(48rem, 56vw);
+  /* padding: 0 1rem; */
+}
+.hero__panel > img {
+  display: block;
+  width: 100%;
+  /* max-width: min(36rem, 40vw); */
+  height: auto;
+  margin-bottom: 1rem;
 }
 
-
-/* type */
-.hero__eyebrow {
-  font-weight: 700;
-  letter-spacing: .02em;
-  margin: 0 0 .25rem;
-  color: #e50914
-}
-
-.hero__title {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  line-height: 1.1;
-  margin: .25rem 0 .5rem
-}
-
-.hero__meta {
-  opacity: .9;
-  margin: 0 0 .75rem
-}
-
-.hero__desc {
-  max-width: 60ch;
-  opacity: .95;
-  margin: 0 0 1.25rem
-}
-
-
-/* hero actions */
 .hero__subheader {
   display: inline-flex;
   align-items: center;
@@ -183,23 +193,33 @@ body {
   place-items: center;
   width: 28px;
   height: 28px;
-  /* square */
   padding: 0;
-  /* no side padding */
   border-radius: 4px;
   background: #e50914;
   color: #fff;
   font: 800 10px/1.05 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
   letter-spacing: .4px;
   text-transform: uppercase;
+  text-align: center;
   margin: 0 auto
 }
+.hero__desc {
+  max-width: 60ch;
+  opacity: .95;
+  margin: 0 0 1.25rem
+}
 
+/* hero action buttons */
 .hero__actions {
+  position: absolute;
   display: flex;
   align-items: center;
+  bottom: 8%;
+  left: var(--side-gap);
+  right: 0;
   gap: .75rem;
   padding-inline-start: 0;
+  z-index: 2;
 
 }
 
@@ -221,7 +241,6 @@ body {
 .btn--more {
   background: rgba(109, 109, 110, .7);
   color: #fff;
-  border-color: rgba(255, 255, 255, .2);
 }
 
 /* small circular icon button + rating chip (optional, matches screenshot) */
@@ -233,9 +252,11 @@ body {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(42, 42, 42, .6);
+  background: rgba(42, 42, 42, .2);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, .2);
+  border: 1px solid rgba(255, 255, 255, .6);
+  font-size: 1.6rem;
+  font-weight: 50;
 }
 
 .rating {
@@ -243,7 +264,7 @@ body {
   align-items: center;
   justify-content: left;
   height: 32px;
-  width: 64px;
+  width: 80px;
   padding: 0 .5rem;
   background: rgba(42, 42, 42, .6);
   font-weight: 400;
@@ -255,7 +276,7 @@ body {
 
 /* --- row (Flex-managed) --- */
 .row {
-  padding: 1rem 2rem 2rem;
+  padding: 1rem var(--side-gap) 2rem;
 }
 
 .row>header {
@@ -385,24 +406,33 @@ body {
 
 
 
+/* Footer */
+.footer { background:#111; color:#b3b3b3; }
+.footer a { color:inherit; text-decoration:none; }
+.footer a:hover { text-decoration:underline; }
 
+.footer-inner { max-width:900px; margin:0 auto; padding:32px 24px 40px; }
 
+.social { display:flex; gap:24px; font-size:24px; margin-bottom:24px; }
+.social a { line-height:1; }
 
-.flex {
-  display: flex;
-  /* turn on flex */
-  justify-content: space-between;
-  /* spread along main axis (row) */
-  align-items: center;
-  /* align on cross axis (vertical) */
-  gap: 12px;
+.links {
+  list-style:none; padding:0; margin:0 0 28px;
+  display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:8px 20px;
+  font-size:13px;
+}
+.links a { display:inline-block; padding:6px 0; color:#b3b3b3; }
+
+.copy { color:#8c8c8c; font-size:11px; line-height:1.2; }
+.copy p { margin:6px 0; }
+
+/* 반응형: 창이 좁아지면 2열/1열로 */
+@media (max-width: 900px) {
+  .links { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .links { grid-template-columns: 1fr; }
+  .social { font-size:24px; }
 }
 
-.nav-logo {
-  height: 32px;
-}
 
-.nav-avatar {
-  height: 32px;
-  border-radius: 4px;
-}

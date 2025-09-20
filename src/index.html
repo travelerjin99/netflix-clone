@@ -7,6 +7,8 @@
     <title>홈 - 넷플릭스</title>
     <meta name="description" content="A Netflix clone built with plain html and css." />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -29,10 +31,10 @@
         <menu class="nav-right">
             <!-- 오른쪽의 버튼들.  -->
             <button class="search-button">
-                <form role="search"></form>🔍
+                <form role="search"></form><i class="fa-solid fa-magnifying-glass"></i>
             </button>
             <a href="#">키즈</a>
-            <button class="search-button">🔔</button>
+            <button class="search-button"><i class="fa-regular fa-bell"></i></button>
             <button class="nav-button">
                 <img class="nav-avatar" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
                     alt="Netflix Avatar" />▾
@@ -46,28 +48,27 @@
             <figure class="hero__media">
                 <picture>
                     <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABU6--YLZfHXkELlpf6Wzmxc51LI2QF9w0Ikf_jjsQyP4Mlz7TxUuFNUx9pygUAeAdZ1UdXk9_ncXiBNE-hK1f08vm8LxoLYibGW8.webp?r=daa"
-                        alt="" width="2000" height="1125" loading="eager" decoding="async">
+                        alt="" loading="eager" decoding="async">
                 </picture>
+                <figcaption  class="hero__panel">
+                    <img
+                        src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABSEAZ_OGKIuMvR3XAHoohrMbXhN1511i3iU5c9lH9mmECitcSJP0I8qdHdoUzKhPbcOxYO_jKf7XPE1xVzws2P0Czyc1eU8B71bT32Iw5xQR.webp?r=9e5">
+                    <header class="hero__header">
+                        <p class="hero__subheader">
+                            <span class="badge" aria-label="Top 10">TOP<br>10</span>오늘 시리즈 순위 2위
+                        </p>
+                        <p class="hero__desc">
+                            시간을 거슬러 과거로 가게 된 현대의 셰프가 폭군으로 악명 높은 왕을 만난다. <br>그녀는 탁월한 요리 솜씨로 왕의 마음과 입맛을 모두 사로잡을 수 있을까?
+                        </p>
+                    </header>
+                </figcaption >
             </figure>
-
-            <article class="hero__panel">
-                <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABSEAZ_OGKIuMvR3XAHoohrMbXhN1511i3iU5c9lH9mmECitcSJP0I8qdHdoUzKhPbcOxYO_jKf7XPE1xVzws2P0Czyc1eU8B71bT32Iw5xQR.webp?r=9e5">
-                <header class="hero__header">
-                    <p class="hero__subheader">
-                         <span class="badge" aria-label="Top 10">TOP<br>10</span>오늘 시리즈 순위 2위
-                    </p>
-                    <p class="hero__desc">
-                        시간을 거슬러 과거로 가게 된 현대의 셰프가 폭군으로 악명 높은 왕을 만난다. 그녀는 탁월한 요리 솜씨로 왕의 마음과 입맛을 모두 사로잡을 수 있을까?
-                    </p>
-                </header>
-
-                <menu class="hero__actions" role="menubar" aria-label="히어로 동작">
-                    <button type="button" class="btn btn--play" aria-label="재생">▶ 재생</button>
-                    <button type="button" class="btn btn--more" aria-label="상세정보">ⓘ 상세정보</button>
-                    <button class="icon-btn" type="button" aria-label="다시 재생" title="다시 재생">↻</button>
-                    <span class="rating" aria-label="연령 등급 15세 이상">15+</span>
-                </menu>
-            </article>
+            <menu class="hero__actions" role="menubar" aria-label="히어로 동작">
+                <button type="button" class="btn btn--play" aria-label="재생">▶ 재생</button>
+                <button type="button" class="btn btn--more" aria-label="상세정보">ⓘ 상세정보</button>
+                <button class="icon-btn" type="button" aria-label="다시 재생" title="다시 재생">↻</button>
+                <span class="rating" aria-label="연령 등급 15세 이상">15+</span>
+            </menu>
         </section>
 
 
@@ -75,7 +76,7 @@
         <!-- first pagination -->
         <section class="row" aria-labelledby="row-ko-audio-desc">
             <header>
-                <h2 id="row-ko-audio-desc"><br><br><br>꼭 챙겨 보세요! 회원님을 위한 콘텐츠</h2>
+                <h2 id="row-ko-audio-desc">꼭 챙겨 보세요! 회원님을 위한 콘텐츠</h2>
                 <ul class="pagination-indicator">
                     <li class="active"></li>
                     <li></li>
@@ -555,15 +556,53 @@
             </ul>
         </section>
 
-        <footer class="site-footer">
-            <address>
-                Contact: <a href="mailto:support@streamio.example">support@netflix.example</a>
-            </address>
-            <nav aria-label="Footer">
-                <a href="/terms">Terms</a>
-                <a href="/privacy">Privacy</a>
-            </nav>
-            <small>&copy; Netflix </small>
+        <footer class="footer" role="contentinfo">
+            <div class="footer-inner">
+                <!-- 소셜 아이콘 -->
+                <nav class="social">
+                    <a href="https://www.facebook.com/NetflixKR" aria-label="Facebook" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/netflixkr/" aria-label="Instagram" target="_blank"
+                        rel="noopener">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://twitter.com/netflixkr" aria-label="Twitter" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.youtube.com/channel/UCiEEF51uRAeZeCo8CJFhGWw/featured" aria-label="YouTube"
+                        target="_blank" rel="noopener">
+                        <i class="fa-brands fa-youtube" aria-hidden="true"></i>
+                    </a>
+                </nav>
+
+                <!-- 링크 4열 그리드 -->
+                <ul class="links">
+                    <li><a href="#">화면 해설</a></li>
+                    <li><a href="#">고객 센터</a></li>
+                    <li><a href="#">기프트카드</a></li>
+                    <li><a href="#">미디어 센터</a></li>
+                    <li><a href="#">투자 정보(IR)</a></li>
+                    <li><a href="#">입사 정보</a></li>
+                    <li><a href="#">이용 약관</a></li>
+                    <li><a href="#">개인정보</a></li>
+                    <li><a href="#">법적 고지</a></li>
+                    <li><a href="#">쿠키 설정</a></li>
+                    <li><a href="#">회사 정보</a></li>
+                    <li><a href="#">문의하기</a></li>
+                </ul>
+
+                <!-- 회사 정보 -->
+                <div class="copy">
+                    <p>넷플릭스서비시스코리아 유한회사 통신판매업신고번호: 제2018-서울종로-0426호 전화번호: 00-308-321-0161 (수신자 부담)</p>
+                    <p>대표: 레지널드 숀 톰프슨</p>
+                    <p>이메일 주소: <a href="#">korea@netflix.com</a></p>
+                    <p>주소: 대한민국 서울특별시 종로구 우정국로 26, 센트로폴리스 A동 20층 우편번호 03161</p>
+                    <p>사업자등록번호: 165-87-00119</p>
+                    <p>클라우드 호스팅: Amazon Web Services Inc.</p>
+                    <p><a href="#">공정거래위원회 웹사이트</a></p>
+                </div>
+            </div>
         </footer>
     </main>
 </body>
