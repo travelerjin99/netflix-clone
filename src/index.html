@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>홈 - 넷플릭스</title>
     <meta name="description" content="A Netflix clone built with plain html and css." />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/0_globals.css" />
+    <link rel="stylesheet" href="css/1_nav.css" />
+    <link rel="stylesheet" href="css/2_hero.css" />
+    <link rel="stylesheet" href="css/3_styles.css" />
+    <link rel="stylesheet" href="css/4_footer.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 </head>
@@ -50,7 +54,7 @@
                     <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABU6--YLZfHXkELlpf6Wzmxc51LI2QF9w0Ikf_jjsQyP4Mlz7TxUuFNUx9pygUAeAdZ1UdXk9_ncXiBNE-hK1f08vm8LxoLYibGW8.webp?r=daa"
                         alt="" loading="eager" decoding="async">
                 </picture>
-                <figcaption  class="hero__panel">
+                <figcaption class="hero__panel">
                     <img
                         src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABSEAZ_OGKIuMvR3XAHoohrMbXhN1511i3iU5c9lH9mmECitcSJP0I8qdHdoUzKhPbcOxYO_jKf7XPE1xVzws2P0Czyc1eU8B71bT32Iw5xQR.webp?r=9e5">
                     <header class="hero__header">
@@ -61,7 +65,7 @@
                             시간을 거슬러 과거로 가게 된 현대의 셰프가 폭군으로 악명 높은 왕을 만난다. <br>그녀는 탁월한 요리 솜씨로 왕의 마음과 입맛을 모두 사로잡을 수 있을까?
                         </p>
                     </header>
-                </figcaption >
+                </figcaption>
             </figure>
             <menu class="hero__actions" role="menubar" aria-label="히어로 동작">
                 <button type="button" class="btn btn--play" aria-label="재생">▶ 재생</button>
@@ -87,73 +91,91 @@
                     <li></li>
                 </ul>
             </header>
-
             <!-- Flex-based horizontal list -->
-            <ul class="row-list" role="list">
-                <li>
-                    <article>
-                        <a href="#">
-                            <figure>
-                                <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABX51Gk1NYuRpTudvXkB8fw1YhMf93LdGy7xh81QARdsIIxTumuxbqPfzxx5JjlIlcagv34rgryqSeQTnfQJa3WjubJafVLPfcS7yj-yGRKsTFV2ww42ebQc11PfL0YdxHmjg.jpg?r=872"
-                                    alt="모태솔로지만 연애는 하고 싶어">
-                            </figure>
-                        </a>
-                    </article>
-                </li>
-
-                <li>
-                    <article>
-                        <a href="#">
-                            <figure>
-                                <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABYcDTPwpLKOm41r554TZih1XOz1axU4vvJ3nslSH-sZ9XvJePF33wbpvYTbgAhxVbOLp39S-fqw6EI3X9dR4rRH8WPJhOWAZ89VdggNd5PcYBpsFJGUNs7WPf-ra47THqD3Q.jpg?r=020"
-                                    alt="흑백요리사: 요리 계급 전쟁">
-                            </figure>
-                        </a>
-                    </article>
-                </li>
-
-                <li>
-                    <article>
-                        <a href="#">
-                            <figure>
-                                <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABcJ6ZqpkCdROzBtFGH6IqRoNCs19Fha0wsYv9t30Njz9IjFWqnItLCO0cHS8kGWwZf3TEi_Upb64c8o4TB7ktDjPPW7YDyx092t1SCPzkDzQbz_tLj8f-fV5TEjDddj02iWg.jpg?r=3d1"
-                                    alt="약한영웅">
-                            </figure>
-                        </a>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <a href="#">
-                            <figure>
-                                <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABb9iUYuf2zFBMrBI209_XTCcLChX2nB8chbWqY8L-RqX-lqh7kmFxhFm5U6bPINGsKJxzVRLMrw-btcWwIO8UsnRHBAJ58Gu3NQ.webp?r=151"
-                                    alt="그린북">
-                            </figure>
-                        </a>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <a href="#">
-                            <figure>
-                                <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABR0VbMCGuT4np2KujRzzwkZn-XVc05f9_i0VsRHksYjAthx5wG817IYADr-M3K0vELcyVf-14wZn5mJXk7ENc011mL0iwN8XlgEl7ZZRgR13ONBgkyndbJQi27cCabtAE8KK.jpg?r=5cc"
-                                    alt="F1 본능의 질주">
-                            </figure>
-                        </a>
-                    </article>
-                </li>
-                <li>
-                    <article>
-                        <a href="#">
-                            <figure>
-                                <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABcJ6ZqpkCdROzBtFGH6IqRoNCs19Fha0wsYv9t30Njz9IjFWqnItLCO0cHS8kGWwZf3TEi_Upb64c8o4TB7ktDjPPW7YDyx092t1SCPzkDzQbz_tLj8f-fV5TEjDddj02iWg.jpg?r=3d1"
-                                    alt="약한영웅">
-                            </figure>
-                        </a>
-                    </article>
-                </li>
-            </ul>
+            <!-- <div class="row-outer" style="--cards-per-view: 5;"> -->
+            <div class="row-outer">
+                <nav class="row-nav" aria-label="행 슬라이드 제어">
+                    <button class="row-prev" aria-label="이전">‹</button>
+                    <button class="row-next" aria-label="다음">›</button>
+                </nav>
+                <div class="row-viewport">
+                    <!-- empty animated track -->
+                    <div class="row-track"></div>
+                    
+                    <!-- content source. js will read <li>s and remove it -->
+                    <ul class="row-list" role="list">
+                        <li>
+                            <article>
+                                <a href="#">
+                                    <figure>
+                                        <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABX51Gk1NYuRpTudvXkB8fw1YhMf93LdGy7xh81QARdsIIxTumuxbqPfzxx5JjlIlcagv34rgryqSeQTnfQJa3WjubJafVLPfcS7yj-yGRKsTFV2ww42ebQc11PfL0YdxHmjg.jpg?r=872"
+                                            alt="모태솔로지만 연애는 하고 싶어">
+                                    </figure>
+                                </a>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <a href="#">
+                                    <figure>
+                                        <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABYcDTPwpLKOm41r554TZih1XOz1axU4vvJ3nslSH-sZ9XvJePF33wbpvYTbgAhxVbOLp39S-fqw6EI3X9dR4rRH8WPJhOWAZ89VdggNd5PcYBpsFJGUNs7WPf-ra47THqD3Q.jpg?r=020"
+                                            alt="흑백요리사: 요리 계급 전쟁">
+                                    </figure>
+                                </a>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <a href="#">
+                                    <figure>
+                                        <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABcJ6ZqpkCdROzBtFGH6IqRoNCs19Fha0wsYv9t30Njz9IjFWqnItLCO0cHS8kGWwZf3TEi_Upb64c8o4TB7ktDjPPW7YDyx092t1SCPzkDzQbz_tLj8f-fV5TEjDddj02iWg.jpg?r=3d1"
+                                            alt="약한영웅">
+                                    </figure>
+                                </a>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <a href="#">
+                                    <figure>
+                                        <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABb9iUYuf2zFBMrBI209_XTCcLChX2nB8chbWqY8L-RqX-lqh7kmFxhFm5U6bPINGsKJxzVRLMrw-btcWwIO8UsnRHBAJ58Gu3NQ.webp?r=151"
+                                            alt="그린북">
+                                    </figure>
+                                </a>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <a href="#">
+                                    <figure>
+                                        <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABR0VbMCGuT4np2KujRzzwkZn-XVc05f9_i0VsRHksYjAthx5wG817IYADr-M3K0vELcyVf-14wZn5mJXk7ENc011mL0iwN8XlgEl7ZZRgR13ONBgkyndbJQi27cCabtAE8KK.jpg?r=5cc"
+                                            alt="F1 본능의 질주">
+                                    </figure>
+                                </a>
+                            </article>
+                        </li>
+                        <li>
+                            <article>
+                                <a href="#">
+                                    <figure>
+                                        <img src="https://occ-0-988-993.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABcJ6ZqpkCdROzBtFGH6IqRoNCs19Fha0wsYv9t30Njz9IjFWqnItLCO0cHS8kGWwZf3TEi_Upb64c8o4TB7ktDjPPW7YDyx092t1SCPzkDzQbz_tLj8f-fV5TEjDddj02iWg.jpg?r=3d1"
+                                            alt="약한영웅">
+                                    </figure>
+                                </a>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- </div> -->
         </section>
+
+
+
+
+
+
+
         <!-- top 10 series -->
         <section class="row" aria-labelledby="row-kr-top10">
             <header>
@@ -176,7 +198,6 @@
                         </a>
                     </article>
                 </li>
-
                 <li>
                     <article>
                         <a href="#">
@@ -187,7 +208,6 @@
                         </a>
                     </article>
                 </li>
-
                 <li>
                     <article>
                         <a href="#">
@@ -198,7 +218,6 @@
                         </a>
                     </article>
                 </li>
-
                 <li>
                     <article>
                         <a href="#">
@@ -209,7 +228,6 @@
                         </a>
                     </article>
                 </li>
-
                 <li>
                     <article>
                         <a href="#">
@@ -220,7 +238,6 @@
                         </a>
                     </article>
                 </li>
-
                 <li>
                     <article>
                         <a href="#">
@@ -605,6 +622,7 @@
             </div>
         </footer>
     </main>
+    <script src="rows-infinite.js"></script>
 </body>
 </main>
 

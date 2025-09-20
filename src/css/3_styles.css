@@ -1,0 +1,240 @@
+/* --- row (Flex-managed) --- */
+.row {
+  padding: 1rem var(--side-gap) 2rem;
+  position:relative;
+}
+
+.row>header {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.row>header h2 {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.row-outer {
+  position: relative;
+  --card-w: calc(
+    (100% - (var(--card-gap) * (var(--cards-per-view) - 1)))
+    / var(--cards-per-view)
+  );
+}
+/* Prev/Next buttons */
+.row-nav {
+  position: absolute;  inset: 0;          /* fills up the parent element, eqiv.to top/left/right/bottom=0*/
+  pointer-events: none;                   /* let clicks pass except on buttons */
+}
+.row-prev, .row-next {
+  position: absolute;
+  top: 50%;  transform: translateY(-50%); /* position center of the poster height */
+  pointer-events: auto;                   /* the parent didn't, but here enable clicks */   
+  background: transparent;
+  color: #ffffff;
+  display: grid;  place-items: center;    /*Centers the arrow glyph inside the button box*/
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  font-size: 6rem;
+  font-weight: 100;
+}
+.row-prev { left: -40px; }  /* since it's absolute, makes it stick to the left side, little outside the track */
+.row-next { right: -40px; }
+
+
+.row-viewport {
+  position: relative;
+  overflow: hidden; /* critical: clips to 5 cards */
+}
+/* Animated Track. holds three pages (prev|current|next) */
+.row-track {
+  display: flex;            /* three pages sit side-by-side */
+  gap: var(--card-gap, .5rem);                   /* gaps live inside .row-page */
+  margin: 0; padding: 0;
+  overflow: hidden;         /* no native scroll */
+  transition: none;         /* JS toggles this */
+  will-change: transform;
+  /* transform: translateX(-100%); center the middle page */
+}
+/* new class, that JS injects */
+.row-page {
+  display: flex;
+  gap: var(--card-gap, .5rem);
+  list-style: none;
+  margin: 0;  padding: 0;
+  width: 100%;
+  flex: 0 0 100%;   /* occupy full width of viewport */
+}
+/* Cards inside pages */
+.row-page > li {
+  flex: 1 1 0;      /* equal split */
+  scroll-snap-align: start; 
+}
+
+.row-page figure {
+  margin: 0;
+}
+
+.row-page figure img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: .25rem;
+  display: block;
+}
+
+
+
+
+
+
+
+/* for the .row-page control */
+.row-viewport > .row-list {
+  display: flex;              /* pages side-by-side (prev|current|next) */
+  list-style: none;           /* no bullet points */
+  padding: 0;  margin: 0;
+  overflow-x: auto;           /* slide left/right */
+  
+  overflow: hidden;           /* disable scrolling */ 
+  scroll-behavior: auto;
+  scroll-snap-type: none;
+
+  /* Animation surface */
+  transition: none;        /* JS toggles this */
+  will-change: transform;
+  transform: translateX(-100%);
+}
+.row-viewport > .row-list::-webkit-scrollbar { display: none; } /* remove scrollbar */
+
+/* CARDS: width set so exactly N fit */
+.row-viewport > .row-list > li {
+  flex: 0 0 auto;
+  /* scroll-snap-align: start; */
+  width: var(--card-w, auto);
+  /* width: 200px; */
+}
+
+/* .row-list {
+  display: flex;
+  gap: .50rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-x: auto;                 
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;    
+  scrollbar-width: none;            
+} */
+
+
+.row-list>li {
+  flex: 0 0 auto;
+  /* don't shrink; stay side-by-side */
+  width: clamp(160px, 22vw, 280px);
+  scroll-snap-align: start; 
+}
+
+.row-list figure {
+  margin: 0;
+}
+
+.row-list figure img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: .25rem;
+  display: block;
+}
+
+/* top10 row */
+.row-list.top10 {
+  counter-reset: top-rank;
+  /* Initialize a counter named "top-rank" */
+}
+
+.row-list.top10>li {
+  counter-increment: top-rank;
+  /* Increments the counter for each <li> element it finds */
+  position: relative;
+  display: grid;
+  /* CHANGED: make li a grid */
+  grid-template-columns: 1fr 1fr;
+  /* CHANGED: 50% number | 50% poster */
+  align-items: stretch;
+  /* CHANGED */
+}
+
+.row-list.top10>li>* {
+  grid-column: 2;
+  /* CHANGED: place poster in the 2nd column */
+}
+
+.row-list.top10 figure {
+  position: relative;
+  z-index: 1;
+}
+
+/* keep the poster above the number */
+.row-list.top10>li figure img {
+  aspect-ratio: 7/10;
+  /* vertical poster in Top10 */
+}
+
+.row-list.top10>li::before {
+  /* ::before : create pseudo-element before each <li>. don't have to deal with html */
+  content: counter(top-rank);
+  /* display the value of the counter "top-rank" */
+  grid-column: 1;
+  width: 100%;
+  height: 100%;
+  justify-self: end;
+  align-self: end;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  line-height: 0.8;
+  font-weight: 900;
+  font-size: clamp(6rem, 15vw, 16rem);
+  color: transparent;
+  -webkit-text-stroke: 4px rgba(255, 255, 255, .28);
+  text-shadow: none;
+  z-index: 0;
+  /* behind the poster */
+  transform: translate(30%, -8%);
+  /* +X = right, -Y = up */
+}
+
+
+
+
+/* page indicator */
+.pagination-indicator {
+  display: flex;
+  margin-left: auto;
+  /*eats up all the margin to the left*/
+  gap: .1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination-indicator li {
+  width: 12px;
+  height: 2px;
+  background: #555;
+  opacity: .9;
+}
+
+.pagination-indicator li.active {
+  background: #ffffffe7;
+  opacity: 1;
+}
+
+
+
+

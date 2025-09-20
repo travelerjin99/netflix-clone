@@ -7,7 +7,8 @@
     const r = firstLi.getBoundingClientRect();
     const gap = parseFloat(getComputedStyle(track).columnGap || 0);
     const full = r.width + gap;
-    return full > 0 ? Math.max(1, Math.round((viewport.clientWidth + gap) / full)) : 1;
+    // return full > 0 ? Math.max(1, Math.round((viewport.clientWidth + gap) / full)) : 1;
+    return 5; // fixed number of cards per view   
   }
 
   function buildSlice(items, start, count) {
@@ -31,7 +32,7 @@
     curr.appendChild(buildSlice(items, state.start, pageSize));
     next.appendChild(buildSlice(items, state.start + pageSize, pageSize));
     track.append(prev, curr, next);
-    track.style.transform = 'translateX(-100%)'; // recenter
+    // track.style.transform = 'translateX(-100%)'; // recenter
   }
 
   function slide(state, dir) {
