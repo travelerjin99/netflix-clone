@@ -1,0 +1,154 @@
+/* hero layout */
+.hero {
+  position: relative;
+  isolation: isolate;
+  color: #fff;
+  min-height: 68vh;
+  display: block;
+  align-items: end;
+  padding: clamp(6rem, 12vw, 16rem) var(--side-gap) 6rem;
+  padding: 0;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  /* 상단 여백은 헤더 높이 고려해서 조절 */
+  /* width: 100%; */
+}
+
+/* backdrop media fills the section */
+.hero__media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hero__media > picture > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: cover;
+  object-position: 60% center;
+}
+
+/* gradients above image, below text */
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(0deg, rgba(0,0,0,.75) 0%, rgba(0,0,0,.25) 40%, rgba(0,0,0,0) 70%),
+    linear-gradient(90deg, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 50%);
+}
+/* hero text panel */
+/* PANEL OVERLAY */
+.hero__panel {
+  position: absolute;        /* anchor inside the media */
+  z-index: 2;                /* above gradient */
+  left: var(--side-gap);
+  right: auto;
+  bottom: 15%;              /* adjust to taste */
+  max-width: min(48rem, 56vw);
+  /* padding: 0 1rem; */
+}
+.hero__panel > img {
+  display: block;
+  width: 100%;
+  /* max-width: min(36rem, 40vw); */
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.hero__subheader {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font: 400 24px/1.2 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+}
+
+.hero__subheader .badge {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border-radius: 4px;
+  background: #e50914;
+  color: #fff;
+  font: 800 10px/1.05 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto
+}
+.hero__desc {
+  max-width: 60ch;
+  opacity: .95;
+  margin: 0 0 1.25rem
+}
+
+/* hero action buttons */
+.hero__actions {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 8%;
+  left: var(--side-gap);
+  right: 0;
+  gap: .75rem;
+  padding-inline-start: 0;
+  z-index: 2;
+
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .65rem 1rem;
+  border-radius: .4rem;
+  border: 1px solid transparent;
+  font: 700 1rem/1.1 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+}
+
+.btn--play {
+  background: #fff;
+  color: #000;
+}
+
+.btn--more {
+  background: rgba(109, 109, 110, .7);
+  color: #fff;
+}
+
+/* small circular icon button + rating chip (optional, matches screenshot) */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(42, 42, 42, .2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, .6);
+  font-size: 1.6rem;
+  font-weight: 50;
+}
+
+.rating {
+  display: inline-flex;
+  align-items: center;
+  justify-content: left;
+  height: 32px;
+  width: 80px;
+  padding: 0 .5rem;
+  background: rgba(42, 42, 42, .6);
+  font-weight: 400;
+  font-size: .9rem;
+  border-left: 3px solid white;
+}

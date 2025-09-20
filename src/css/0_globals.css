@@ -1,0 +1,17 @@
+:root {
+  --side-gap: 3.5rem;
+  --card-gap: .75rem; /* tune if you want tighter/looser spacing */
+  --cards-per-view: 5
+  
+  /* --card-w: 800px */
+}
+
+html, body { max-width: 100%; overflow-x: clip; }        
+/* stop page-wide spill */
+
+body {
+  width: 100%;
+  margin: 0;
+  background-color: #141414;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
