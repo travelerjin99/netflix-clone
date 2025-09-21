@@ -26,24 +26,35 @@
 }
 /* Prev/Next buttons */
 .row-nav {
-  position: absolute;  inset: 0;          /* fills up the parent element, eqiv.to top/left/right/bottom=0*/
-  pointer-events: none;                   /* let clicks pass except on buttons */
+  position: absolute;  inset: 0;  /* fills up the parent element, eqiv.to top/left/right/bottom=0*/
+  pointer-events: none;           /* let clicks pass except on buttons */
+  z-index: 1;
 }
 .row-prev, .row-next {
   position: absolute;
-  top: 50%;  transform: translateY(-50%); /* position center of the poster height */
   pointer-events: auto;                   /* the parent didn't, but here enable clicks */   
   background: transparent;
   color: #ffffff;
+  background: rgba(255, 255, 255, 0.5);
   display: grid;  place-items: center;    /*Centers the arrow glyph inside the button box*/
+  width: var(--side-gap);
+  inset-block: 0;
+  height: auto;
+  /* height:100%; */
   cursor: pointer;
   padding: 0;
   border: 0;
   font-size: 6rem;
   font-weight: 100;
+  line-height: 1;
 }
-.row-prev { left: -40px; }  /* since it's absolute, makes it stick to the left side, little outside the track */
-.row-next { right: -40px; }
+.row-prev { left: calc(-1*var(--side-gap))}  /* since it's absolute, makes it stick to the left side, little outside the track */
+.row-next { right: calc(-1*var(--side-gap)); }
+.row-btn svg {
+  width: 32px;
+  height: 48px;
+  display: block;
+}
 
 
 .row-viewport {
@@ -53,12 +64,20 @@
 /* Animated Track. holds three pages (prev|current|next) */
 .row-track {
   display: flex;            /* three pages sit side-by-side */
-  gap: var(--card-gap, .5rem);                   /* gaps live inside .row-page */
+  gap: var(--card-gap, .5rem);/* gaps live inside .row-page */
   margin: 0; padding: 0;
-  overflow: hidden;         /* no native scroll */
+  /* overflow: hidden;         no native scroll */
   transition: none;         /* JS toggles this */
   will-change: transform;
   /* transform: translateX(-100%); center the middle page */
+  transform: translateX(calc(-100% - var(--card-gap)));
+  z-index: 0;
+  /* scroll debug */
+    /* overflow-x: auto;      
+  overflow-y: hidden;
+  transform:none;
+   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; */
 }
 /* new class, that JS injects */
 .row-page {
