@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>간단한 검색 기능</title>
+    <style>
+        /* CSS를 최소화하여 화면 중앙에 배치 */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+            background-color: #f4f4f4;
+        }
+        #search-container {
+            width: 80%;
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        #search-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #results-container {
+            width: 80%;
+            max-width: 600px;
+            border: 1px solid #ddd;
+            background-color: white;
+            padding: 15px;
+            min-height: 100px;
+        }
+        .result-item {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        .result-item img {
+            width: 40px;
+            height: 60px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>간단한 검색</h1>
+    
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="검색어를 입력하세요..." autofocus>
+    </div>
+
+    <div id="results-container">
+        여기에 서버 응답 결과가 표시됩니다.
+    </div>
+    
+    <script src="frontend.js"></script>
+</body>
+</html>
